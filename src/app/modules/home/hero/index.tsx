@@ -30,8 +30,8 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
   });
 
   useEffect(() => {
-    // Set the target date to August 1, 2024, at midnight (00:00:00)
-    const targetDate = new Date(dateTimeCountdown).getTime();
+    const _targetDate = dateTimeCountdown ? new Date(dateTimeCountdown) : new Date()
+    const targetDate = _targetDate.getTime();
 
     const updateCountdown = () => {
       const currentDate = new Date().getTime();

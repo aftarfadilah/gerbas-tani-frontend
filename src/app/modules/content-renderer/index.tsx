@@ -47,12 +47,12 @@ const ComponentTampilanBanner: React.FC<TampilanBannerProp> = ({
       title={title}
       description={description}
       link={{
-        text: button.text,
-        url: button.url,
+        text: button?.text ?? "",
+        url: button?.url ?? "",
       }}
       background={{
-        url: background.url,
-        alt: background.alt,
+        url: background?.url ?? "",
+        alt: background?.alt ?? "",
       }}
     />
   );
