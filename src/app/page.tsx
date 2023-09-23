@@ -93,7 +93,16 @@ export default function Home() {
     return card.isi
   })
 
-  // 
+  // Feat. Products
+  const products = homeContent?.kotak_produk.map((produk) => {
+    return {
+      title: produk.nama_produk,
+      image: {
+        url: `${clientConfig.strapiUrl}${produk.foto_produk.data.attributes.url}`,
+        alt: produk.foto_produk.data.attributes.alternativeText,
+      }
+    }
+  })
 
   return (
     <main className="flex flex-col items-center justify-between">
@@ -109,7 +118,7 @@ export default function Home() {
         medias={aboutMedias}
         cards={aboutCards}
       />
-      <OurProducts />
+      <OurProducts products={products} />
       <HeroBanner
         title="Produk Terbaru"
         description="Hadirlah Inovasi Baru Sebuah ICE CREAM  Labu Dari UMKM Sekitar"
