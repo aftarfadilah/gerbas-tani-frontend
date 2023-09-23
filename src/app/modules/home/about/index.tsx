@@ -63,37 +63,37 @@ const About: React.FC = () => {
           </div>
           <div className="flex flex-col gap-y-4">
             <div className="flex flex-row gap-x-4">
-              <div className="bg-gray-200 rounded-md w-full flex flex-row">
+              <div className="bg-gray-200 rounded-md w-full flex flex-col sm: flex-row">
                 <div className="flex justify-center items-center p-2 px-4">
                   <div className="bg-white rounded-full aspect-square w-[50px]"></div>
                 </div>
-                <div className="py-4">
+                <div className="py-4 px-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
               </div>
-              <div className="bg-gray-200 rounded-md w-full flex flex-row">
+              <div className="bg-gray-200 rounded-md w-full flex flex-col sm:flex-row">
                 <div className="flex justify-center items-center p-2 px-4">
                   <div className="bg-white rounded-full aspect-square w-[50px]"></div>
                 </div>
-                <div className="py-4">
+                <div className="py-4 px-4 ">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
               </div>
             </div>
             <div className="flex flex-row gap-x-4">
-              <div className="bg-gray-200 rounded-md w-full flex flex-row">
+              <div className="bg-gray-200 rounded-md w-full flex flex-col sm:flex-row">
                 <div className="flex justify-center items-center p-2 px-4">
                   <div className="bg-white rounded-full aspect-square w-[50px]"></div>
                 </div>
-                <div className="py-4">
+                <div className="py-4 px-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
               </div>
-              <div className="bg-gray-200 rounded-md w-full flex flex-row">
+              <div className="bg-gray-200 rounded-md w-full flex flex-col sm:flex-row">
                 <div className="flex justify-center items-center p-2 px-4">
                   <div className="bg-white rounded-full aspect-square w-[50px]"></div>
                 </div>
-                <div className="py-4">
+                <div className="py-4 px-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
               </div>
