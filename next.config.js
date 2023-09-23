@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['localhost', 'gerbas-tani.com','tailwindui.com', 'images.unsplash.com', 'purepng.com', 'drive.google.com']
+      domains: ['localhost','*.herokuapp.com', 'gerbas-tani.com','tailwindui.com', 'images.unsplash.com', 'purepng.com', 'drive.google.com']
     },
   }
 

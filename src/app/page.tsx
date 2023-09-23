@@ -96,7 +96,7 @@ export default function Home() {
   // About Const
   const aboutMedias = homeContent?.gallery.data.map((media: any) => {
     return {
-      url: media.attributes.url,
+      url: `${clientConfig.strapiHerokuUrl}${media.attributes.url}`,
       alt: media.attributes.alternativeText,
     };
   });
@@ -109,7 +109,7 @@ export default function Home() {
     return {
       title: produk.nama_produk,
       image: {
-        url: produk.foto_produk.data.attributes.url,
+        url: `${clientConfig.strapiHerokuUrl}${produk.foto_produk.data.attributes.url}`,
         alt: produk.foto_produk.data.attributes.alternativeText,
       },
     };
@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
       <Hero
-        banner={{ url: heroBanner?.url, alt: heroBanner?.alternativeText }}
+        banner={{ url: `${clientConfig.strapiHerokuUrl}${heroBanner?.url}`, alt: heroBanner?.alternativeText }}
         dateTimeCountdown={homeContent?.countdown}
         deskripsi={homeContent?.deskripsi_hitung_mundur}
       />

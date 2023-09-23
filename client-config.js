@@ -5,6 +5,7 @@ const environment = "production";
 let clientConfig = {
   siteUrl: "http://localhost:8000",
   strapiUrl: "http://127.0.0.1:1337",
+  strapiHerokuUrl: "http://127.0.0.1:1337",
   graphqlUrl: "http://127.0.0.1:1337/graphql",
   serverBaseUrl: "http://127.0.0.1:1337/api",
 //   medusaBackendUrl: "http://localhost:9000",
@@ -17,6 +18,7 @@ if (environment === "production" || environment === "staging") {
   clientConfig = {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
     strapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL_PROD,
+    strapiHerokuUrl: process.env.NEXT_PUBLIC_HEROKU_URL_PROD,
     graphqlUrl: process.env.NEXT_PUBLIC_GRAPHQL_STRAPI_URL_PROD,
     serverBaseUrl: process.env.NEXT_PUBLIC_API_STRAPI_URL,
     // medusaBackendUrl: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL,
