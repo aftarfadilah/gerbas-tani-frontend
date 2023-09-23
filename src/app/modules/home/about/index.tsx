@@ -4,7 +4,13 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
-const About: React.FC = () => {
+type Props = {
+  toptext?: string;
+  title?: string;
+  deskripsi?: string;
+};
+
+const About: React.FC<Props> = ({ toptext, title, deskripsi }) => {
   return (
     <div className="w-full text-gray-900">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-x-16 px-4 sm:px-0 py-24 gap-12">
@@ -52,11 +58,10 @@ const About: React.FC = () => {
           </div>
         </div>
         <div className="w-full flex flex-col gap-y-4">
-          <span>Dari Petani, Demi Petani, Untuk Petani</span>
-          <h2 className="text-6xl font-black">Mahakarya yang Membumi</h2>
+          <span>{toptext}</span>
+          <h2 className="text-6xl font-black">{title}</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quidem. Quaerat, voluptas?{" "}
+            {deskripsi}
           </p>
           <div className="w-full flex justify-end">
             <span>Info lebih lanjut</span>

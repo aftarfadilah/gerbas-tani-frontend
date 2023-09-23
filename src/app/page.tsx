@@ -1,13 +1,80 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Hero from "./modules/home/hero";
 import About from "./modules/home/about";
 import OurProducts from "./modules/home/our-products";
 import HeroBanner from "./modules/hero-banner";
+import { gql, useQuery } from "@apollo/client";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
+
+  const {
+    loading,
+    error,
+    data: dataQuery,
+  } = useQuery(gql`
+    query QueryHome {
+      home {
+        data {
+          attributes {
+            countdown
+            deskripsi_hitung_mundur
+            banner {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            gallery {
+              data {
+                attributes {
+                  alternativeText
+                  url
+                }
+              }
+            }
+            text_atas
+            judul
+            deskripsi
+            small_card {
+              id
+              isi
+            }
+            kotak_produk {
+              id
+              nama_produk
+              foto_produk {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+            konten {
+              ... on ComponentTampilanBanner {
+                id
+                judul
+                deskripsi
+                link_teks
+                link_url
+              }
+            }
+            createdAt
+            updatedAt
+            publishedAt
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(">> dataQ", dataQuery)
 
   useEffect(() => {
     async function fetchData() {
@@ -23,12 +90,20 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const homePageAttr = data?.data?.attributes
+  const homePageAttr = data?.data?.attributes;
 
   return (
     <main className="flex flex-col items-center justify-between">
-      <Hero banner={""} dateTimeCountdown={homePageAttr?.countdown} deskripsi={homePageAttr?.deskripsi_hitung_mundur} />
-      <About />
+      {/* <Hero
+        banner={""}
+        dateTimeCountdown={homePageAttr?.countdown}
+        deskripsi={homePageAttr?.deskripsi_hitung_mundur}
+      />
+      <About
+        title={homePageAttr.judul}
+        toptext={homePageAttr?.text_atas}
+        deskripsi={homePageAttr?.deskripsi}
+      /> */}
       <OurProducts />
       <HeroBanner
         title="Produk Terbaru"
