@@ -85,12 +85,12 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 -z-10"></div>
         <div className="mx-auto max-w-5xl py-32 sm:py-48 lg:py-80 z-10">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-7xl px-6">
               {countdown.days} <span className="text-[2rem] mr-2">hari</span>
               {countdown.hours} <span className="text-[2rem] mr-2">jam</span>
-              {countdown.minutes}{" "}
+              {countdown.minutes}
               <span className="text-[2rem] mr-2">menit</span>
-              {countdown.seconds}{" "}
+              {countdown.seconds}
               <span className="text-[2rem] mr-2">detik</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-white">{deskripsi}</p>
