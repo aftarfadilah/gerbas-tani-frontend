@@ -6,6 +6,7 @@ import About from "./modules/home/about";
 import OurProducts from "./modules/home/our-products";
 import HeroBanner from "./modules/hero-banner";
 import { gql, useQuery } from "@apollo/client";
+import clientConfig from "../../client-config";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
@@ -74,36 +75,40 @@ export default function Home() {
     }
   `);
 
-  console.log(">> dataQ", dataQuery)
+  console.log(">> dq", dataQuery)
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("http://127.0.0.1:1337/api/home");
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
+  if (error) {
+    return <></>;
+  }
 
-    fetchData();
-  }, []);
+  // Hero Const
+  const homeContent = dataQuery?.home?.data?.attributes;
+  const heroBanner = homeContent?.banner.data[0].attributes
 
-  const homePageAttr = data?.data?.attributes;
+  // About Const
+  const aboutMedias = homeContent?.gallery.data.map((media) => {
+    return {url: `${clientConfig.strapiUrl}${media.attributes.url}`, alt: media.attributes.alternativeText}
+  })
+  const aboutCards = homeContent?.small_card.map((card) => {
+    return card.isi
+  })
+
+  // 
 
   return (
     <main className="flex flex-col items-center justify-between">
-      {/* <Hero
-        banner={""}
-        dateTimeCountdown={homePageAttr?.countdown}
-        deskripsi={homePageAttr?.deskripsi_hitung_mundur}
+      <Hero
+        banner={{ url: heroBanner?.url, alt: heroBanner?.alternativeText }}
+        dateTimeCountdown={homeContent?.countdown}
+        deskripsi={homeContent?.deskripsi_hitung_mundur}
       />
       <About
-        title={homePageAttr.judul}
-        toptext={homePageAttr?.text_atas}
-        deskripsi={homePageAttr?.deskripsi}
-      /> */}
+        title={homeContent?.judul}
+        toptext={homeContent?.text_atas}
+        deskripsi={homeContent?.deskripsi}
+        medias={aboutMedias}
+        cards={aboutCards}
+      />
       <OurProducts />
       <HeroBanner
         title="Produk Terbaru"
