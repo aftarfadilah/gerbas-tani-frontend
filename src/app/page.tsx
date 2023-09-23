@@ -96,7 +96,7 @@ export default function Home() {
   // About Const
   const aboutMedias = homeContent?.gallery.data.map((media: any) => {
     return {
-      url: `${clientConfig.strapiUrl}${media.attributes.url}`,
+      url: media.attributes.url,
       alt: media.attributes.alternativeText,
     };
   });
@@ -109,7 +109,7 @@ export default function Home() {
     return {
       title: produk.nama_produk,
       image: {
-        url: `${clientConfig.strapiUrl}${produk.foto_produk.data.attributes.url}`,
+        url: produk.foto_produk.data.attributes.url,
         alt: produk.foto_produk.data.attributes.alternativeText,
       },
     };

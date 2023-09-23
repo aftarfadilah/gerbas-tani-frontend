@@ -72,7 +72,7 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
         <div className="w-full h-full -z-10">
           {banner && banner.url && (
             <Image
-              src={`${clientConfig.strapiUrl}${banner?.url}` ?? ""}
+              src={banner?.url ?? ""}
               alt={banner?.alt ?? ""}
               layout="fill"
               objectFit="cover"

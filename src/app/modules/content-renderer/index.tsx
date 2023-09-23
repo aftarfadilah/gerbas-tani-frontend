@@ -12,7 +12,7 @@ const ContentRenderer: React.FC<Props> = ({ type, data }) => {
       <ComponentTampilanBanner
         background={{
           alt: data.latar_belakang.data.attributes.alternativeText,
-          url: `${clientConfig.strapiUrl}${data.latar_belakang.data.attributes.url}`,
+          url: data.latar_belakang.data.attributes.url,
         }}
         button={{ text: data.link_teks, url: data.link_url }}
         description={data.deskripsi}
