@@ -30,7 +30,7 @@ const HeroBanner: React.FC<Props> = ({
       <div
         className={clsx("relative isolate overflow-hidden sm:pt-14", className)}
       >
-        <div className="relative h-96 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-full bg-white order-1 lg:order-2 -z-10  px-6">
+        <div className="relative h-96 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-full bg-white order-1 lg:order-2 -z-10  px-6 sm:px-0">
           <img
             src={background.url}
             alt={background.alt}

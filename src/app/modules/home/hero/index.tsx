@@ -76,7 +76,7 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
             <img
               src={banner?.url ?? ""}
               alt={banner?.alt ?? ""}
-              className="w-full h-full object-cover object-center z-[-10]"
+              className="absolute w-full h-full object-cover object-center z-[-10]"
             />
           )}
         </div>
