@@ -11,7 +11,17 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-const Hero: React.FC = () => {
+type Props = {
+  dateTimeCountdown?: string
+  deskripsi?: string
+  banner?: any
+} & React.HTMLAttributes<HTMLDivElement>
+
+const Hero: React.FC<Props> = ({
+  dateTimeCountdown,
+  deskripsi,
+  banner,
+}) => {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -21,7 +31,7 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     // Set the target date to August 1, 2024, at midnight (00:00:00)
-    const targetDate = new Date("2024-08-01T00:00:00").getTime();
+    const targetDate = new Date(dateTimeCountdown).getTime();
 
     const updateCountdown = () => {
       const currentDate = new Date().getTime();
@@ -54,7 +64,7 @@ const Hero: React.FC = () => {
 
     // Initial call to set the countdown
     updateCountdown();
-  }, []);
+  }, [dateTimeCountdown]);
 
   return (
     <div className="w-full">
@@ -82,7 +92,7 @@ const Hero: React.FC = () => {
                 {countdown.seconds} <span className="text-[2rem] mr-2">detik</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-white">
-              lagi hingga Gerbas Sari tiba di Lumajang
+              {deskripsi}
             </p>
           </div>
         </div>
