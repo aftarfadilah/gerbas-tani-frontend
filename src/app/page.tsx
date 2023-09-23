@@ -94,18 +94,18 @@ export default function Home() {
   const heroBanner = homeContent?.banner.data[0].attributes;
 
   // About Const
-  const aboutMedias = homeContent?.gallery.data.map((media) => {
+  const aboutMedias = homeContent?.gallery.data.map((media: any) => {
     return {
       url: `${clientConfig.strapiUrl}${media.attributes.url}`,
       alt: media.attributes.alternativeText,
     };
   });
-  const aboutCards = homeContent?.small_card.map((card) => {
+  const aboutCards = homeContent?.small_card.map((card: any) => {
     return card.isi;
   });
 
   // Feat. Products
-  const products = homeContent?.kotak_produk.map((produk) => {
+  const products = homeContent?.kotak_produk.map((produk: any) => {
     return {
       title: produk.nama_produk,
       image: {
