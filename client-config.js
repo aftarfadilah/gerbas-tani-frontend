@@ -1,6 +1,6 @@
-const environment = process.env.NEXT_PUBLIC_CUSTOM_NODE_ENV || "development"
+// const environment = process.env.NEXT_PUBLIC_CUSTOM_NODE_ENV || "development"
 // const environment = "staging";
-// const environment = "production";
+const environment = "production";
 
 let clientConfig = {
   siteUrl: "http://localhost:8000",
@@ -16,11 +16,12 @@ let clientConfig = {
 if (environment === "production" || environment === "staging") {
   clientConfig = {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+    strapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL_PROD,
     graphqlUrl: process.env.NEXT_PUBLIC_GRAPHQL_STRAPI_URL_PROD,
     serverBaseUrl: process.env.NEXT_PUBLIC_API_STRAPI_URL,
-    medusaBackendUrl: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL,
+    // medusaBackendUrl: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL,
     prodUrl: process.env.NEXT_PUBLIC_SITE_URL,
-    serviceTypeId: process.env.NEXT_PUBLIC_SERVICE_TYPE_ID_PROD,
+    // serviceTypeId: process.env.NEXT_PUBLIC_SERVICE_TYPE_ID_PROD,
     environment,
   }
 }
