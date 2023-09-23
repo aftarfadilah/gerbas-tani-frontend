@@ -30,41 +30,29 @@ const About: React.FC<Props> = ({
           <div className="w-full flex flex-col gap-y-4">
             {medias[0] && (
               <div className="relative w-full bg-gray-200 aspect-[3/2]">
-                <Image
+                <img
                   src={medias[0].url}
                   alt={medias[0].alt}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition={"center"}
-                  className="w-full"
-                  priority
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             )}
             <div className="flex flex-row gap-x-4">
               {medias[1] && (
                 <div className="relative w-full bg-gray-200 aspect-[3/2]">
-                  <Image
+                  <img
                     src={medias[1].url}
                     alt={medias[1].alt}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition={"center"}
-                    className="w-full"
-                    priority
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               )}
               {medias[2] && (
                 <div className="relative w-full bg-gray-200 aspect-[3/2]">
-                  <Image
+                  <img
                     src={medias[2].url}
                     alt={medias[2].alt}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition={"center"}
-                    className="w-full"
-                    priority
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               )}
@@ -85,9 +73,7 @@ const About: React.FC<Props> = ({
                   <div className="flex justify-center items-center p-2 px-4">
                     <div className="bg-white rounded-full aspect-square w-[50px]"></div>
                   </div>
-                  <div className="py-4 px-4">
-                    {card}
-                  </div>
+                  <div className="py-4 px-4">{card}</div>
                 </div>
               </div>
             ))}

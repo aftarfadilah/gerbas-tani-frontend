@@ -30,7 +30,9 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
   });
 
   useEffect(() => {
-    const _targetDate = dateTimeCountdown ? new Date(dateTimeCountdown) : new Date()
+    const _targetDate = dateTimeCountdown
+      ? new Date(dateTimeCountdown)
+      : new Date();
     const targetDate = _targetDate.getTime();
 
     const updateCountdown = () => {
@@ -71,14 +73,10 @@ const Hero: React.FC<Props> = ({ dateTimeCountdown, deskripsi, banner }) => {
       <div className="relative isolate overflow-hidden pt-14">
         <div className="w-full h-full -z-10">
           {banner && banner.url && (
-            <Image
+            <img
               src={banner?.url ?? ""}
               alt={banner?.alt ?? ""}
-              layout="fill"
-              objectFit="cover"
-              objectPosition={"center"}
-              className="w-full -z-10"
-              priority
+              className="w-full h-full object-cover object-center z-[-10]"
             />
           )}
         </div>

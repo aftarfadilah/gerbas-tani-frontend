@@ -20,14 +20,10 @@ const OurProducts: React.FC<Props> = ({ products }) => {
             key={index}
           >
             <div className="relative max-w-[200px] w-full aspect-[2/3]">
-              <Image
+              <img
                 src={product.image.url}
                 alt={product.image.alt}
-                layout="fill"
-                objectFit="contain"
-                objectPosition={"center"}
-                className="w-full"
-                priority
+                className="w-full h-full object-contain object-center"
               />
             </div>
             <div>

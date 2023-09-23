@@ -16,28 +16,25 @@ type Props = {
     url: string;
     alt: string;
   };
-} & React.HTMLAttributes<HTMLDivElement>
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const HeroBanner: React.FC<Props> = ({
   title,
   description,
   link,
   background,
-  className
+  className,
 }) => {
-
   return (
     <div className={clsx("bg-white w-full")}>
-      <div className={clsx("relative isolate overflow-hidden sm:pt-14", className)}>
+      <div
+        className={clsx("relative isolate overflow-hidden sm:pt-14", className)}
+      >
         <div className="relative h-96 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-full bg-white order-1 lg:order-2 -z-10  px-6">
-          <Image
+          <img
             src={background.url}
             alt={background.alt}
-            layout="fill"
-            objectFit="cover"
-            objectPosition={"center"}
-            className="w-full"
-            priority
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div
